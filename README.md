@@ -60,4 +60,4 @@ GitHub: [marcelowf](https://github.com/marcelowf)
 
 #### 🏷️ Tags
 
-`Pigeon` `Microsserviços` `Mensageria` `Monitoramento` `Automação` `Azure` `.NET` `DDD` `Docker` `Terraform` `Swagger` `CI/CD` `xUnit`
+`Pigeon` `Microsserviços` `Mensageria` `Monitoramento` `Automação` `Azure` `AzureDevOps` `Terraform` `CI/CD`
