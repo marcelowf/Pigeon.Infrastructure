@@ -17,13 +17,13 @@ Este projeto utiliza Terraform para provisionar:
 
 #### Estrutura do Projeto
 
-- `Configuration.AzureDevOps` —
-- `Pigeon.Poundation` —
-- `Pigeon.Skeletons` —
+- Configuration.AzureDevOps — Contains YAML pipeline definitions for Azure DevOps, automating provisioning and deployment processes for the Pigeon platform.
 
-#### Como Usar
+- Pigeon.Foundation — Defines the core infrastructure modules (e.g., storage, service bus, key vault) used across Pigeon projects, acting as the foundation layer for provisioning.
 
----
+- Pigeon.Skeletons — Reusable Terraform module templates for common Azure resources, designed to simplify and standardize infrastructure provisioning across Pigeon services.
+- 
+ #### Como Usar
 
 Para utilizar este repositório, siga os passos abaixo:
 
