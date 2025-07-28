@@ -4,7 +4,7 @@
 
 IaC para recursos Azure usados pelo projeto Pigeon. Este repositório contém os módulos e configurações Terraform para provisionar Pigeon Azure Functions.
 
-#### Visão Geral
+#### 📚 Visão Geral
 
 Este projeto utiliza Terraform para provisionar:
 
@@ -15,7 +15,7 @@ Este projeto utiliza Terraform para provisionar:
 - Azure Service Bus Queues
 - Application Insights
 
-#### Estrutura do Projeto
+#### 🗂️ Estrutura do Projeto
 
 - Configuration.AzureDevOps — Contains YAML pipeline definitions for Azure DevOps, automating provisioning and deployment processes for the Pigeon platform.
 
@@ -23,7 +23,7 @@ Este projeto utiliza Terraform para provisionar:
 
 - Pigeon.Skeletons — Reusable Terraform module templates for common Azure resources, designed to simplify and standardize infrastructure provisioning across Pigeon services.
 - 
- #### Como Usar
+ #### 🧠 Como Usar
 
 Para utilizar este repositório, siga os passos abaixo:
 
