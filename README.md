@@ -17,12 +17,10 @@ Este projeto utiliza Terraform para provisionar:
 
 #### 🗂️ Estrutura do Projeto
 
-- Configuration.AzureDevOps — Contains YAML pipeline definitions for Azure DevOps, automating provisioning and deployment processes for the Pigeon platform.
+- `Configuration.AzureDevOps` — Gerencia todas as configurações e credenciais para integração com Azure DevOps, centralizando acessos e parâmetros de operação de forma segura.
+- `Pigeon.Foundation` — Define os módulos de infraestrutura essenciais (como armazenamento, Service Bus e Key Vault) usados por todos os projetos Pigeon, servindo como a camada base para provisionamento.
+- `Pigeon.Skeletons` — Oferece templates reutilizáveis de módulos Terraform para recursos Azure comuns, visando simplificar e padronizar o provisionamento de infraestrutura entre os serviços Pigeon.
 
-- Pigeon.Foundation — Defines the core infrastructure modules (e.g., storage, service bus, key vault) used across Pigeon projects, acting as the foundation layer for provisioning.
-
-- Pigeon.Skeletons — Reusable Terraform module templates for common Azure resources, designed to simplify and standardize infrastructure provisioning across Pigeon services.
-- 
  #### 🧠 Como Usar
 
 Para utilizar este repositório, siga os passos abaixo:
@@ -36,11 +34,13 @@ Para utilizar este repositório, siga os passos abaixo:
 2. **Importe para o seu Azure DevOps.**
 
 3. **Defina seu grupo de variáveis:** Navegue até **Pipelines** => **Library** no Azure DevOps e crie um novo grupo de variáveis com os seguintes campos:
-    - `bkstrg`
-    - `bkstrgrg`
-    - `env_suffix`
-    - `service_connection_name`
-    - `subscription_id`
+- `bkstrg` - Nome da conta de armazenamento do backend do Terraform para o arquivo de estado.
+- `bkstrgrg` - Nome do grupo de recursos onde a conta de armazenamento do backend.
+- `env_suffix` - Sufixo (ex: dev, qa, prod).
+- `sender_email` - Endereço de e-mail do remetente para envio de notificações.
+- `sender_key` - Chave do e-mail do remetente para autenticação SMTP.
+- `service_connection_name` - Nome da conexão de serviço do Azure DevOps para autenticar a pipeline na assinatura Azure.
+- `subscription_id` - ID exclusivo da sua assinatura Azure.
 
     Após definir essas variáveis, **altere o nome do grupo de variáveis** no arquivo YAML localizado em `Configuration.AzureDevOps` para o nome que você definiu.
 
