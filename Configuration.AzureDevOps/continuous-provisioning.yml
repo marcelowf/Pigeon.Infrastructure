@@ -40,8 +40,13 @@ jobs:
           targetType: inline
           workingDirectory: $(tfWorkingDirectory)
           script: |
-            echo "subscription_id = \"$(subscription_id)\"" > linenex.auto.tfvars
-            echo "env_suffix = \"$(env_suffix)\"" >> linenex.auto.tfvars
+            echo "subscription_id = \"$(subscription_id)\"" > pigeon.auto.tfvars
+            echo "sender_email = \"$(sender_email)\"" >> pigeon.auto.tfvars
+            echo "sender_key = \"$(sender_key)\"" >> pigeon.auto.tfvars
+            echo "env_suffix = \"$(env_suffix)\"" >> pigeon.auto.tfvars
+            echo "azure_devops_org = \"$(azure_devops_org)\"" >> pigeon.auto.tfvars
+            echo "azure_devops_proj = \"$(azure_devops_proj)\"" >> pigeon.auto.tfvars
+            echo "azure_devops_pat = \"$(azure_devops_pat)\"" >> pigeon.auto.tfvars
 
       - task: AzureCLI@2
         displayName: "Terraform Init"

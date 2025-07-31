@@ -13,3 +13,7 @@ output "namespace_id" {
 output "queue_ids" {
   value = { for name, q in azurerm_servicebus_queue.queues : name => q.id }
 }
+
+output "queue_names" {
+  value = { for name, q in azurerm_servicebus_queue.queues : name => q.name }
+}

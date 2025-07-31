@@ -19,14 +19,20 @@ resource "azurerm_linux_function_app" "function" {
   https_only                 = true
   tags                       = local.tags
 
+  identity {
+    type = "SystemAssigned"
+  }
+
   site_config {
     application_stack {
-      dotnet_version = "6.0" # ou node_version/python_version se necessário
+      dotnet_version              = "8.0"
+      use_dotnet_isolated_runtime = true
     }
   }
 
   app_settings = merge({
-    "WEBSITE_RUN_FROM_PACKAGE" = "1"
+    "WEBSITE_RUN_FROM_PACKAGE"    = "1",
+    "FUNCTIONS_EXTENSION_VERSION" = "~4",
+    "FUNCTIONS_WORKER_RUNTIME"    = "dotnet-isolated"
   }, local.app_settings)
 }
-

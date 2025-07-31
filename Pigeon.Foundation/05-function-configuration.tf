@@ -19,8 +19,10 @@ module "function_app_01" {
   app_settings = {
     "AzureWebJobsStorage"            = module.storage_account_01.storage_account_primary_connection_string
     "FUNCTIONS_EXTENSION_VERSION"    = "~4"
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated"
     "APPINSIGHTS_INSTRUMENTATIONKEY" = module.app_insights_email.instrumentation_key
     "ServiceBusConnection"           = module.service_bus_01.namespace_connection_string
+    "EmailQueueName" = module.service_bus_01.queue_names["email_dispatcher"]
   }
   tags = var.tags
 }
@@ -36,8 +38,10 @@ module "function_app_02" {
   app_settings = {
     "AzureWebJobsStorage"            = module.storage_account_01.storage_account_primary_connection_string
     "FUNCTIONS_EXTENSION_VERSION"    = "~4"
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated"
     "APPINSIGHTS_INSTRUMENTATIONKEY" = module.app_insights_board.instrumentation_key
     "ServiceBusConnection"           = module.service_bus_01.namespace_connection_string
+    "BoardQueueName" = module.service_bus_01.queue_names["board_dispatcher"]
   }
   tags = var.tags
 }

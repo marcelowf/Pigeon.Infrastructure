@@ -18,3 +18,5 @@ resource "azurerm_resource_group" "rg" {
   name     = "rg-pigeon-${var.env_suffix}"
   location = var.location
 }
+
+data "azurerm_client_config" "current" {}
